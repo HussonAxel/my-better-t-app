@@ -2,6 +2,8 @@ import { trpc } from "@/utils/trpc";
 import { useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
 
+import { Posts } from "@/components/posts";
+
 export const Route = createFileRoute("/")({
   component: HomeComponent,
 });
@@ -27,7 +29,9 @@ function HomeComponent() {
             </span>
           </div>
         </section>
-
+        <section className="rounded-lg border p-4">
+          <Posts />
+        </section>
         <section>
           <h2 className="mb-3 font-medium">Core Features</h2>
           <ul className="grid grid-cols-2 gap-3">

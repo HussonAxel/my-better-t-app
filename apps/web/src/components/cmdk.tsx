@@ -84,10 +84,9 @@ export function CommandMenu() {
 
   return (
     <>
-      {/* This button will live in the SiteHeader */}
       <Button
         variant="outline"
-        className="h-8 w-8 p-0 sm:h-8 sm:w-auto sm:px-3 sm:py-1 sm:text-xs sm:font-normal" // Adjust styling as needed
+        className="h-8 w-8 p-0 sm:h-8 sm:w-auto sm:px-3 sm:py-1 sm:text-xs sm:font-normal"
         onClick={() => setOpen(true)}
         aria-label="Open command menu / search"
       >
@@ -104,14 +103,13 @@ export function CommandMenu() {
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
 
-          {/* Group for Pages/Navigation */}
           <CommandGroup heading="Navigation">
             {searchablePages.map((item) => (
               <CommandItem
                 key={item.href}
-                value={item.label} // Value used for filtering
+                value={item.label}
                 onSelect={() => {
-                  runCommand(() => navigate({ to: item.href })); // Navigate on select
+                  runCommand(() => navigate({ to: item.href }));
                 }}
                 className="cursor-pointer"
               >
@@ -123,22 +121,21 @@ export function CommandMenu() {
 
           <CommandSeparator />
 
-          {/* Example Group for Actions (if needed) */}
-          {/* <CommandGroup heading="Actions">
-            <CommandItem
-              value="Create Project"
-              onSelect={() => {
-                runCommand(() => console.log("Create Project action!"));
-              }}
-               className="cursor-pointer"
-            >
-              <PlusCircledIcon className="mr-2 h-4 w-4" />
-              <span>Create New Project</span>
-            </CommandItem>
-          </CommandGroup> */}
-
-          {/* Add more groups for searching specific data (e.g., Pokémon, Items) */}
-          {/* This would likely involve fetching data dynamically based on input */}
+          <CommandGroup heading="Testing">
+            {searchablePages.map((item) => (
+              <CommandItem
+                key={item.href}
+                value={item.label}
+                onSelect={() => {
+                  runCommand(() => navigate({ to: item.href }));
+                }}
+                className="cursor-pointer"
+              >
+                <item.icon className="mr-2 h-4 w-4" />
+                <span>{item.label}</span>
+              </CommandItem>
+            ))}
+          </CommandGroup>
         </CommandList>
       </CommandDialog>
     </>

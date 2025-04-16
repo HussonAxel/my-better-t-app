@@ -14,7 +14,7 @@ export function AppLayout({ children }: AppLayoutProps) {
         <SiteHeader />
         <div className="flex flex-1">
           <AppSidebar />
-            <div className="flex flex-1 flex-col gap-4 p-4">
+            <div className="flex flex-1 flex-col gap-4 p-4 bg-sidebar">
               {children}
             </div>
         </div>
